@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login and Register</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1 class="header">Favorite Books App</h1>
+            <div class="messages">
+            {%if messages%}
+                {% for message in messages %}
+                    <p class="text-danger small">{{ message }}</p>
+                {% endfor %}
+            {%endif%}
+            </div>    
+            <div id="container">
+                <div class="section">
+                    <h1>Register</h1>
+                    <form action="/register" method="post">
+                    {% csrf_token %}
+                        <p>First Name:</p> 
+                        <input name="first_name" type="text">
+                        <p>Last_Name:</p> 
+                        <input name="last_name" type="text">
+                        <p>Email:</p><br> 
+                        <input name="email" type="text">
+                        <p>Password:</p> 
+                        <input name="password" type="password">
+                        <p>Confirm Password:</p> 
+                        <input name="confirm_password" type="password">
+                        <button class="submit" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="section">
+                    <h1>Log In</h1>
+                    <form action="/login" method="post">
+                    {% csrf_token %}
+                        <p>Email:</p>
+                        <input name="login_email" type="text">
+                        <p>Password:</p>
+                        <input name="login_password" type="text">
+                        <button class="submit" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

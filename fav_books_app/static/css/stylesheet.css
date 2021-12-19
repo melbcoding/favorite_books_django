@@ -1,0 +1,79 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    overflow-y: scroll;
+}
+
+#wrapper{
+    height: auto;
+    width: 850px;
+    margin: auto;
+    border: solid 3px black;
+    display: block;
+    text-align: center;
+}
+
+.header {
+    padding: 5px;
+    height: 50px;
+    width:850px;
+    background-color: darkslategray;
+    color: white;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header > a {
+    color: white;
+    font-size: 20px;
+    align-self: center;
+}
+
+#container{
+    height:700px;
+    width: 850px;
+    background-color: gray;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.section{
+    height: 550px;
+    width: 350px;
+    padding: 15px;
+    background-color: white;
+    display: inline-block;
+    justify-self: baseline;
+}
+
+.section p{
+    display:block;
+    margin: 15px;
+    text-align: left;
+}
+
+.submit{
+    height: 15px;
+    width:20px;
+    display: block;
+    padding: 5px;
+    margin: 15px;
+    background-color: darkgray;
+    box-shadow: 2px, 2px;
+}
+
+.messages {
+    color: red;
+}
+.favorites{
+    height: auto;
+    width: 850;
+    display: block;
+    background-color: white;
+    padding:10px;   
+}

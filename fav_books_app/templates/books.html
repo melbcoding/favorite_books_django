@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Main Page</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="header">
+                <h1> Welcome {{this_user.first_name}} {{this_user.last_name}}!</h1>
+                <a href='/main_page'>Go Back</a>
+                <a href="/logout">Log Out</a>
+            </div>
+            <div id="container">
+                <div class= "section">
+                    <h3>{{book.title}}</h3>
+                    <p>Posted By: {{book.creator.first_name}} {{book.creator.last_name}}</p>
+                    <h5>Description:</h5>
+                    <p>{{book.description}}</p>
+                    {% if book.creator.id == request.session.user_id%}
+                    <form action='{{book.id}}/update' method='post'>
+                    {% csrf_token %}
+                    {% for message in messages %}
+                        <p class="text-danger small">{{ message }}</p>
+                    {% endfor %}
+                        <h5>update book:</h5>
+                        <p>Description</p>
+                        <textarea name='description' rows="5" columns='5'>{{book.description}}</textarea>
+                        <button type="submit">Update</button>
+                    </form>
+                    <button type='submit'><a href='{{book.id}}/delete'>Delete</a></button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
